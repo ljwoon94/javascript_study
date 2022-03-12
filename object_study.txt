@@ -1,0 +1,72 @@
+Object 접근 추가 삭제
+
+const superman = {
+    name: 'jeongwoon',
+    age: 27
+} 
+
+접근
+
+superman.name // 'jeongwoon'
+superman['name'] // 'jeongwoon'
+
+추가 
+
+superman.gender = 'male';
+superman['hairColor'] ='black';
+
+삭제
+
+delete superman.hairColor;
+
+Object - 프로퍼티 존재 여부 확인
+
+superman.birthDay; //undefined
+'birthDay' in superman; // false
+'age' in superman // true
+
+for(let key in superman){
+    console.log(key) // key
+    console.log(superman[key]) // value
+}
+
+for문 실행 시
+'name'
+'jeongwoon'
+'age'
+27
+'gender'
+'male'
+
+객체안에 함수를 넣을 수 있다.
+객체 프로퍼티로 할당 된 함수를 'method' 라고 한다.
+
+const superman = {
+    name : 'jeongwoon',
+    age : 33,
+    gender: 'male',
+    fly(){
+        console.log('공중 날기')
+    }
+}
+
+method에서 객체안에 변수를 사용하고 싶으면 this를 사용한다.
+const user = {
+    name : 'jeongwoon',
+    sayHello : function (){
+        console.log('Hello, I'm ${this.name}');
+    }
+}
+
+** 화살표 함수는 일반 함수와는 달리 자신만의 this를 가지지 않음.
+화살표 함수 내부에서 this를 사용하면,그 this는 외부에서 값을 가져온다.
+
+ex)
+let boy ={
+    name: 'Mike',
+    sayHello:()=>{
+        console.log(this); // 화살표 함수라 여기에 있는 this는 전역객체
+    }
+}
+boy.sayHello();
+this != boy;
