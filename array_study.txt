@@ -1,0 +1,20 @@
+Array
+배열은 문자 뿐만 아니라, 숫자,객체,함수 등도 포함할 수 있다.
+
+let arr = [
+    '정운',
+    3,
+    false,
+    {
+        name:'jeongwoon',
+        age : 30,
+    },
+    function(){
+        console('TEST'),
+    }
+]
+
+배열 추가 push,
+배열 마지막 삭제 pop,
+배열 맨앞 추가 filter_tilt_shift,
+배열 맨마지막 삭제 unshift 

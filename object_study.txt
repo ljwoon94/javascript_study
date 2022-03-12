@@ -70,3 +70,59 @@ let boy ={
 }
 boy.sayHello();
 this != boy;
+
+---------------------------------------------------
+computed property
+
+const aa = 'name';
+const user = {
+    aa: 'jeongwoon'
+    [1+4] : 5,
+    ["안녕"+"하세요"] : "Hello"
+}
+
+Object.assign() //객체를 복제
+
+const user = {
+    name : 'Mike',
+    age : 30
+}
+const cloneUser = user; // 이런 식으로 복제되지 않는다.
+
+// 올바른 예:
+const newUser = Object.assign({},user);
+
+// 올바른 예:
+// {gender : 'male'}에 user 객체 내용을 추가
+const maleUser = Object.assign({gender:'male'},user);
+const maleUser = {
+    name : 'Mike',
+    age : 30,
+    gender : 'male'
+}
+
+// 올바른 예:
+// 객체를 합치는데, 같은 키가 있을 경우
+// 덮어 씌워버린다.
+// 'jeongwoon' 대신 Mike가 덮어 씌워진다.
+const maleUser = Object.assign({name:'jeongwoon'},user);
+const maleUser = {
+    name : 'Mike',
+    age : 30,
+    gender : 'male'
+}
+
+// Object.values() : 값 배열 반환
+Object.values(user); // ['Mike',30,'male']
+
+// Object.entries() : 키.값 배열 반환
+Object.entries(user); // [['name','Mike'],['age',30],['gender','male']]
+
+// Object.entries() : 키.값 배열을 객체로
+const arr = [
+    ['name','Mike'],
+    ['age',30],
+    ['gender','male']
+]
+Object.fromEntries(arr); // {'name':'Mike', 'age':30,'gender':'male'}
+
